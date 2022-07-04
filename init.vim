@@ -8,22 +8,36 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf.vim' 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dracula/vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-rooter'
+Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 colorscheme dracula
 set number
 set splitright
 set splitbelow
+set autoread
+au CursorHold * checktime
 
-" Begin coc.nvim config"
+let NERDTreeShowHidden=1
+let mapleader = "," " map leader to comma
+set timeoutlen=2000 ttimeoutlen=0
+map <leader>h :noh<CR>
+map <leader>ne :NERDTreeTabsToggle<CR>
+map <leader>na :set number<CR>
+map <leader>nn :set nonumber<CR>
+map <leader>rf :Files<CR>
+map <leader>rg :Rg<CR>
+
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
-set encoding=utf-8
+set encoding=UTF-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -188,4 +202,3 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-"End coc.vim config"
