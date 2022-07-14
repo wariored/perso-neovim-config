@@ -16,9 +16,15 @@ Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-rooter'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Valloric/MatchTagAlways'
+Plug 'morhetz/gruvbox'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
-colorscheme dracula
+syntax enable
+filetype plugin indent on
+set encoding=utf-8
+colorscheme gruvbox
 set number
 set splitright
 set splitbelow
@@ -28,12 +34,28 @@ au CursorHold * checktime
 let NERDTreeShowHidden=1
 let mapleader = "," " map leader to comma
 set timeoutlen=2000 ttimeoutlen=0
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 map <leader>h :noh<CR>
 map <leader>ne :NERDTreeTabsToggle<CR>
 map <leader>na :set number<CR>
 map <leader>nn :set nonumber<CR>
 map <leader>rf :Files<CR>
 map <leader>rg :Rg<CR>
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
+
+" setting up copilot
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_filetypes = {
+		\ '*': v:true,
+		\ 'rust': v:false
+	  \ }
+
+"Rust
+let g:rust_format_on_save = v:true
+"Prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
