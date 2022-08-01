@@ -1,37 +1,43 @@
-
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 Plug 'Chiel92/vim-autoformat'
-Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf.vim' 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dracula/vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
-Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-rooter'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Valloric/MatchTagAlways'
 Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
+Plug 'ianding1/leetcode.vim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 syntax enable
 filetype plugin indent on
-set encoding=utf-8
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+" TextEdit might fail if hidden is not set
+set hidden
+set encoding=utf8
 colorscheme gruvbox
 set number
 set splitright
 set splitbelow
 set autoread
 au CursorHold * checktime
+set guifont=hack_nerd_font:h13
 
-let NERDTreeShowHidden=1
 let mapleader = "," " map leader to comma
 set timeoutlen=2000 ttimeoutlen=0
 vmap <leader>f  <Plug>(coc-format-selected)
@@ -42,7 +48,16 @@ map <leader>na :set number<CR>
 map <leader>nn :set nonumber<CR>
 map <leader>rf :Files<CR>
 map <leader>rg :Rg<CR>
+map <leader>bf :Buffers<CR>
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
+" Leetcode map
+nnoremap <leader>ll :LeetCodeList<cr>
+nnoremap <leader>lt :LeetCodeTest<cr>
+nnoremap <leader>ls :LeetCodeSubmit<cr>
+nnoremap <leader>li :LeetCodeSignIn<cr>
+" Go to tab by number
+map <C-h> :tabp<CR>
+map <C-l> :tabn<CR>
 
 " setting up copilot
 let g:copilot_no_tab_map = v:true
@@ -56,13 +71,21 @@ let g:copilot_filetypes = {
 let g:rust_format_on_save = v:true
 "Prettier
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+"Leetcode
+let g:leetcode_browser='chrome'
+let g:leetcode_solution_filetype='golang'
+let g:leetcode_hide_paid_only=v:true
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusUseNerdFonts = v:true
+let g:NERDTreeGitStatusShowStatus = v:true
+let g:NERDTreeGitStatusShowIgnored = v:true
+" NERDTree
+let NERDTreeShowHidden=1
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=UTF-8
 
-" TextEdit might fail if hidden is not set.
-set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -204,7 +227,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
