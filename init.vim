@@ -50,6 +50,15 @@ map <leader>rf :Files<CR>
 map <leader>rg :Rg<CR>
 map <leader>bf :Buffers<CR>
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
+" move lines up and down
+"alt + j
+"alt + k
+nnoremap Ï :m .+1<CR>== 
+nnoremap È :m .-2<CR>==
+inoremap Ï <Esc>:m .+1<CR>==gi
+inoremap È <Esc>:m .-2<CR>==gi
+vnoremap Ï :m '>+1<CR>gv=gv
+vnoremap È :m '<-2<CR>gv=gv
 " Leetcode map
 nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
@@ -84,7 +93,9 @@ let NERDTreeShowHidden=1
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
+" coc-golang
+" add the missing imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 
 " Some servers have issues with backup files, see #649.
