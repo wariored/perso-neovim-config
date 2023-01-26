@@ -21,6 +21,12 @@ Plug 'rust-lang/rust.vim'
 Plug 'ianding1/leetcode.vim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhinz/vim-signify'
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 syntax enable
@@ -35,6 +41,9 @@ set number
 set splitright
 set splitbelow
 set autoread
+set ts=4 sw=4
+" set js file tabs to 2 spaces
+autocmd BufEnter *.js :setlocal tabstop=2 shiftwidth=2 expandtab
 au CursorHold * checktime
 set guifont=hack_nerd_font:h13
 
@@ -88,6 +97,7 @@ let g:leetcode_hide_paid_only=v:true
 let g:NERDTreeGitStatusUseNerdFonts = v:true
 let g:NERDTreeGitStatusShowStatus = v:true
 let g:NERDTreeGitStatusShowIgnored = v:true
+let NERDTreeIgnore = ['\.pyc$', 'tmp', 'node_modules']
 " NERDTree
 let NERDTreeShowHidden=1
 " vim-airline
@@ -96,6 +106,8 @@ let g:airline_powerline_fonts = 1
 " coc-golang
 " add the missing imports on save
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" Use the stdio version of OmniSharp-roslyn - this is the default
+let g:OmniSharp_server_stdio = 1
 
 
 " Some servers have issues with backup files, see #649.
@@ -258,3 +270,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+lua << EOF
+-- your lua code here
+EOF
