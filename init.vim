@@ -27,6 +27,7 @@ Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug '907th/vim-auto-save'
 call plug#end()
 
 syntax enable
@@ -36,12 +37,18 @@ set updatetime=100
 " TextEdit might fail if hidden is not set
 set hidden
 set encoding=utf8
+
 colorscheme gruvbox
 set number
 set splitright
 set splitbelow
 set autoread
 set ts=4 sw=4
+
+" auto save
+let g:auto_save = 1
+let g:auto_save_keep_undo = 1
+
 " set js file tabs to 2 spaces
 autocmd BufEnter *.js :setlocal tabstop=2 shiftwidth=2 expandtab
 au CursorHold * checktime
@@ -273,3 +280,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 lua << EOF
 -- your lua code here
 EOF
+
+lua require('config')
