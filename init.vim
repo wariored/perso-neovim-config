@@ -28,6 +28,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug '907th/vim-auto-save'
+Plug 'ggandor/lightspeed.nvim'
+Plug 'kalekundert/vim-coiled-snake'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 syntax enable
@@ -280,5 +283,4 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 lua << EOF
 -- your lua code here
 EOF
-
 lua require('config')
