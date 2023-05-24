@@ -1,2 +1,6 @@
-require("keymaps")
+require("nvim-cmp-configs")
+require("lspconfig-configs")
 require("commands")
+require("keymaps")
+require("treesitter-configs")
+require("nvimtree-configs")
