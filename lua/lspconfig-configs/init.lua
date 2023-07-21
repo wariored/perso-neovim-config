@@ -27,6 +27,7 @@ lspconfig.pyright.setup({
 })
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
+	on_attach = on_attach
 })
 lspconfig.rust_analyzer.setup({
 	-- Server-specific settings. See `:help lspconfig-setup`
@@ -36,6 +37,7 @@ lspconfig.rust_analyzer.setup({
 })
 lspconfig.gopls.setup({
 	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 -- Global mappings.

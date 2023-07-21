@@ -11,10 +11,10 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-rooter'
 Plug 'Valloric/MatchTagAlways'
-Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
 Plug 'ianding1/leetcode.vim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -37,6 +37,8 @@ Plug 'hrsh7th/nvim-cmp'
 " formatting
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
+" theme 
+Plug 'projekt0n/github-nvim-theme'
 call plug#end()
 
 syntax enable
