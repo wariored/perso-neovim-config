@@ -39,6 +39,8 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 " theme 
 Plug 'projekt0n/github-nvim-theme'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 call plug#end()
 
 syntax enable
@@ -55,7 +57,7 @@ set splitright
 set splitbelow
 set autoread
 set ts=4 sw=4
-
+xnoremap p pgvy
 " auto save
 let g:auto_save = 1
 let g:auto_save_keep_undo = 1
