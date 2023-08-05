@@ -51,7 +51,7 @@ set updatetime=100
 set hidden
 set encoding=utf8
 
-colorscheme gruvbox
+colorscheme kanagawa
 set number
 set splitright
 set splitbelow
@@ -61,9 +61,10 @@ xnoremap p pgvy
 " auto save
 let g:auto_save = 1
 let g:auto_save_keep_undo = 1
+highlight Visual guibg=blue guifg=white
 
 au CursorHold * checktime
-set guifont=hack_nerd_font:h13
+
 
 autocmd FileType python setlocal foldmethod=indent
 
@@ -76,8 +77,6 @@ map <leader>nl :NvimTreeFindFile<CR>
 map <leader>nc :NvimTreeCollapse<CR>
 map <leader>na :set number<CR>
 map <leader>nn :set nonumber<CR>
-map <leader>rf :Files<CR>
-map <leader>bf :Buffers<CR>
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 " move lines up and down
 "alt + j
@@ -113,11 +112,6 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 let g:leetcode_browser='chrome'
 let g:leetcode_solution_filetype='golang'
 let g:leetcode_hide_paid_only=v:true
-" nerdtree-git-plugin
-let g:NERDTreeGitStatusUseNerdFonts = v:true
-let g:NERDTreeGitStatusShowStatus = v:true
-let g:NERDTreeGitStatusShowIgnored = v:true
-let NERDTreeIgnore = ['\.pyc$', 'tmp', 'node_modules']
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
