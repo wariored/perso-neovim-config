@@ -1,5 +1,4 @@
 call plug#begin()
-Plug 'github/copilot.vim'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,14 +26,6 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug '907th/vim-auto-save'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
-" nvim auto-completion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'williamboman/nvim-lsp-installer'
 " formatting
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
