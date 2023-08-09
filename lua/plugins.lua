@@ -12,6 +12,9 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/nvim-cmp'
 	use 'williamboman/nvim-lsp-installer'
+	-- Along with nvim-cmp or vsnip users.
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
 
 	use "github/copilot.vim"
 end)

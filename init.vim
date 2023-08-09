@@ -31,8 +31,6 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 " theme 
 Plug 'projekt0n/github-nvim-theme'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
 call plug#end()
 
 syntax enable
