@@ -31,6 +31,8 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 " theme 
 Plug 'projekt0n/github-nvim-theme'
+" tmux navigator
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 syntax enable
@@ -82,13 +84,10 @@ nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
-" Go to tab by number
-map <C-h> :bprevious<CR>
-map <C-l> :bnext<CR>
 
 " setting up copilot
 let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
 let g:copilot_filetypes = {
 		\ '*': v:true,
 		\ 'rust': v:false
