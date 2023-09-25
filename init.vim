@@ -3,7 +3,6 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Chiel92/vim-autoformat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
@@ -104,7 +103,8 @@ let g:leetcode_hide_paid_only=v:true
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+let g:go_fmt_command = "goimports"
 " add the missing imports on save
-" autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 " Use the stdio version of OmniSharp-roslyn - this is the default
 lua require('config')
