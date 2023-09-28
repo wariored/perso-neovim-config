@@ -20,3 +20,14 @@ vim.api.nvim_set_keymap('n', '<Leader>fT', '<cmd>lua require("fzf-lua").tags()<C
 -- maps for nvim-tree
 -- Define mapping for locating opened file in Nvim-Tree
 vim.api.nvim_set_keymap('n', '<leader>tl', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+
+-- maps for nvim-dap-go
+
+-- Map DapToggleBreakpoint to <Leader>db
+vim.api.nvim_set_keymap('n', '<Leader>db', '<cmd>DapToggleBreakpoint<CR>', { noremap = true, silent = true })
+-- Map the function to open the debugging sidebar to <Leader>dus
+vim.api.nvim_set_keymap('n', '<Leader>dus', '<cmd>lua require("dap.ui.widgets").sidebar(require("dap.ui.widgets").scopes).open()<CR>', { noremap = true, silent = true })
+-- Debug go test
+vim.api.nvim_set_keymap('n', '<Leader>dgt', '<cmd>lua require("dap-go").debug_test()<CR>', { noremap = true, silent = true })
+-- Debug last go test
+vim.api.nvim_set_keymap('n', '<Leader>dgl', '<cmd>lua require("dap-go").debug_last()<CR>', { noremap = true, silent = true })

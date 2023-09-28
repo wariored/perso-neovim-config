@@ -21,4 +21,6 @@ return require('packer').startup(function(use)
 	-- Debugging
 	use 'mfussenegger/nvim-dap'
 	use 'leoluz/nvim-dap-go'
+	-- gophers for go cmd
+	 use "olexsmir/gopher.nvim"
 end)
