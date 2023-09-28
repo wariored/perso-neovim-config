@@ -8,7 +8,14 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.goimports,
+		null_ls.builtins.formatting.golines.with({
+            -- Set the maximum line length (e.g., 100 characters)
+            max_line_length = 89,
+        }),
 	},
+
 })
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
@@ -39,6 +46,16 @@ lspconfig.rust_analyzer.setup({
 lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = {"gopls"},
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+		}
+	}
 })
 
 -- Global mappings.

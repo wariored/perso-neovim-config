@@ -59,6 +59,7 @@ au CursorHold * checktime
 
 autocmd FileType python setlocal foldmethod=indent
 
+
 let mapleader = "," " map leader to comma
 set timeoutlen=2000 ttimeoutlen=0
 map <leader>h :noh<CR>
@@ -104,7 +105,6 @@ let g:leetcode_hide_paid_only=v:true
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-let g:go_fmt_command = "goimports"
 " add the missing imports on save
 " Use the stdio version of OmniSharp-roslyn - this is the default
 lua require('config')

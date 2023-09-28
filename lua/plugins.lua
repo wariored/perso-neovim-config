@@ -16,7 +16,9 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 
-	use 'fatih/vim-go'
-
 	use "github/copilot.vim"
+
+	-- Debugging
+	use 'mfussenegger/nvim-dap'
+	use 'leoluz/nvim-dap-go'
 end)
