@@ -22,5 +22,7 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use 'leoluz/nvim-dap-go'
 	-- gophers for go cmd
-	 use "olexsmir/gopher.nvim"
+	use "olexsmir/gopher.nvim"
+
+	use "folke/which-key.nvim"
 end)
