@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
 
 	-- Debugging
 	use 'mfussenegger/nvim-dap'
+	use 'rcarriga/nvim-dap-ui'
 	use 'leoluz/nvim-dap-go'
 	-- gophers for go cmd
 	use "olexsmir/gopher.nvim"
