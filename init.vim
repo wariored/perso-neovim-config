@@ -44,6 +44,7 @@ set encoding=utf8
 
 colorscheme kanagawa
 set number
+set relativenumber
 set splitright
 set splitbelow
 set autoread
