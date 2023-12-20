@@ -60,7 +60,6 @@ au CursorHold * checktime
 
 autocmd FileType python setlocal foldmethod=indent
 
-
 let mapleader = "," " map leader to comma
 set timeoutlen=2000 ttimeoutlen=0
 map <leader>h :noh<CR>
@@ -85,6 +84,10 @@ nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
+
+"remap window resize 
+nnoremap <C-w>> :vertical resize +15<CR>
+nnoremap <C-w>< :vertical resize -15<CR>
 
 " setting up copilot
 let g:copilot_no_tab_map = v:true
