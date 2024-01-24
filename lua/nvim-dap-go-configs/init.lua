@@ -1,5 +1,5 @@
 require('dap-go').setup()
-local dap = require "dap"
+local dap = require("dap")
 dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
     local handle

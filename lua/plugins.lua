@@ -27,5 +27,5 @@ return require('packer').startup(function(use)
 
 	use "folke/which-key.nvim"
 	-- cmd ui
-	use {"folke/noice.nvim", requires={ "MunifTanjim/nui.nvim","rcarriga/nvim-notify"}}
+	use {"folke/noice.nvim", lazy = true, requires={ "MunifTanjim/nui.nvim","rcarriga/nvim-notify"}}
 end)

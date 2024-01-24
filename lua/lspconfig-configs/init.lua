@@ -29,9 +29,24 @@ local function on_attach(client, bufnr)
 		null_ls.setup_on_attach(client)
 	end
 end
-lspconfig.pyright.setup({
+lspconfig.pylsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		pylsp = {
+			plugins = {
+				black = { enabled = false },
+				ruff = {
+					enabled = true,
+					extendSelect = { "ALL" },
+					format = { "ALL" },
+				},
+				pylint = { enabled = true, executable = "pylint", args = {"--disable=missing-docstring"} },
+				pylsp_mypy = { enabled = true },
+				edi_completion = { fuzzy = true },
+			}
+		}
+	}
 })
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
