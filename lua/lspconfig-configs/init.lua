@@ -33,6 +33,13 @@ lspconfig.pylsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
+		--[[
+		pylsp install: pip install "python-lsp-server[all]"
+			3rd party plugins:
+				python-lsp-isort: pip install python-lsp-isort
+				pylsp-mypy: pip install pylsp-mypy
+				pylsp-black: pip install python-lsp-black
+		]]--
 		pylsp = {
 			plugins = {
 				black = { enabled = true },
