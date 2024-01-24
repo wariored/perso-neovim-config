@@ -35,7 +35,7 @@ lspconfig.pylsp.setup({
 	settings = {
 		pylsp = {
 			plugins = {
-				black = { enabled = false },
+				black = { enabled = true },
 				ruff = {
 					enabled = true,
 					extendSelect = { "ALL" },
