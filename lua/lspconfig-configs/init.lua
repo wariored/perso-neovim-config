@@ -43,7 +43,7 @@ lspconfig.pylsp.setup({
 				},
 				pylint = { enabled = true, executable = "pylint", args = {"--disable=missing-docstring"} },
 				pylsp_mypy = { enabled = true },
-				edi_completion = { fuzzy = true },
+				jedi_completion = { fuzzy = true },
 			}
 		}
 	}
