@@ -29,44 +29,26 @@ local function on_attach(client, bufnr)
 		null_ls.setup_on_attach(client)
 	end
 end
-lspconfig.pylsp.setup({
+
+lspconfig.ruff_lsp.setup {
+  on_attach = on_attach,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    }
+  }
+}
+
+lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	settings = {
-		--[[
-		pylsp install: pip install "python-lsp-server[all]"
-			3rd party plugins:
-				python-lsp-isort: pip install python-lsp-isort
-				pylsp-mypy: pip install pylsp-mypy
-				pylsp-black: pip install python-lsp-black
-		]]
-		--
-		pylsp = {
-			plugins = {
-				black = { enabled = true, lineLength = 89 },
-				ruff = {
-					enabled = true,
-					lineLength = 89,
-					extendSelect = { "I" },
-					format = { "ALL" },
-				},
-				autopep8 = { enabled = false },
-				yapf = { enabled = false },
-				pycodestyle = { enabled = false },
-				pylint = {
-					enabled = false,
-					executable = "pylint",
-					args = { "--disable=missing-docstring", "--max-line-length=89" },
-				},
-				pyflakes = { enabled = false },
-				pylsp_mypy = { enabled = true },
-				jedi_completion = { enabled = true, fuzzy = true },
-				pyls_isort = { enabled = false },
-			},
-		},
-	},
 })
-lspconfig.tsserver.setup({
+lspconfig.sumneko_lua.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+lspconfig.vimls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
