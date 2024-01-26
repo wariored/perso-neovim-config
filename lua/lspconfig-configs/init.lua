@@ -12,16 +12,15 @@ null_ls.setup({
 		null_ls.builtins.formatting.gofmt,
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.golines.with({
-            -- Set the maximum line length (e.g., 100 characters)
-            max_line_length = 89,
-        }),
+			-- Set the maximum line length (e.g., 100 characters)
+			max_line_length = 89,
+		}),
 	},
-
 })
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
 }
 
 local function on_attach(client, bufnr)
@@ -39,25 +38,30 @@ lspconfig.pylsp.setup({
 				python-lsp-isort: pip install python-lsp-isort
 				pylsp-mypy: pip install pylsp-mypy
 				pylsp-black: pip install python-lsp-black
-		]]--
+		]]
+		--
 		pylsp = {
 			plugins = {
-				black = { enabled = true },
+				black = { enabled = true, lineLength = 89 },
 				ruff = {
 					enabled = true,
 					extendSelect = { "ALL" },
 					format = { "ALL" },
 				},
-				pylint = { enabled = true, executable = "pylint", args = {"--disable=missing-docstring"} },
+				pylint = {
+					enabled = true,
+					executable = "pylint",
+					args = { "--disable=missing-docstring", "--max-line-length=89" },
+				},
 				pylsp_mypy = { enabled = true },
-				jedi_completion = { fuzzy = true },
-			}
-		}
-	}
+				jedi_completion = { enabled = true, fuzzy = false },
+			},
+		},
+	},
 })
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
-	on_attach = on_attach
+	on_attach = on_attach,
 })
 lspconfig.rust_analyzer.setup({
 	-- Server-specific settings. See `help lspconfig-setup`
@@ -69,7 +73,7 @@ lspconfig.rust_analyzer.setup({
 lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = {"gopls"},
+	cmd = { "gopls" },
 	settings = {
 		gopls = {
 			completeUnimported = true,
@@ -77,8 +81,8 @@ lspconfig.gopls.setup({
 			analyses = {
 				unusedparams = true,
 			},
-		}
-	}
+		},
+	},
 })
 
 -- Global mappings.
