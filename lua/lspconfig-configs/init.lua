@@ -1,4 +1,5 @@
 -- Setup language servers.
+require("nvim-lsp-installer").setup({})
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 -- Register null-ls formatter
@@ -45,15 +46,15 @@ lspconfig.pylsp.setup({
 				black = { enabled = true, lineLength = 89 },
 				ruff = {
 					enabled = true,
-					extendSelect = { "ALL" },
-					format = { "ALL" },
 					lineLength = 89,
+					extendSelect = { "I" },
+					format = { "ALL" },
 				},
 				autopep8 = { enabled = false },
-				yapf = { enabled = true },
+				yapf = { enabled = false },
 				pycodestyle = { enabled = false },
 				pylint = {
-					enabled = true,
+					enabled = false,
 					executable = "pylint",
 					args = { "--disable=missing-docstring", "--max-line-length=89" },
 				},
