@@ -6,6 +6,8 @@ map("n", "<leader>bb", "<Cmd>BufferPrevious<CR>", opts)
 map("n", "<leader>bn", "<Cmd>BufferNext<CR>", opts)
 map("n", "<leader>bc", "<Cmd>BufferClose<CR>", opts)
 map("n", "<leader>bp", "<Cmd>BufferPick<CR>", opts)
+map('n', '<leader>>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<leader><', '<Cmd>BufferMoveNext<CR>', opts)
 -- maps for fzf-nvim
 map("n", "<leader>fzf", ":FzfLua builtin<CR>", { noremap = true, silent = true })
 map("n", "<Leader>fr", '<cmd>lua require("fzf-lua").lsp_references()<CR>', { noremap = true, silent = true })
