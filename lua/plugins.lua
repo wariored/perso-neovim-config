@@ -11,6 +11,7 @@ return require("packer").startup(function(use)
 	use "hrsh7th/cmp-path"
 	use "hrsh7th/cmp-cmdline"
 	use "hrsh7th/nvim-cmp"
+	-- lps libs
 	use "williamboman/mason.nvim"
 	use "williamboman/mason-lspconfig.nvim"
 	use "williamboman/nvim-lsp-installer"
@@ -30,4 +31,9 @@ return require("packer").startup(function(use)
 	use "folke/which-key.nvim"
 	-- cmd ui
 	use {"folke/noice.nvim", lazy = true, requires={ "MunifTanjim/nui.nvim","rcarriga/nvim-notify"}}
+	--[[ tabs
+	-- use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+	-- use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
+	-- ]]
+	use 'romgrk/barbar.nvim'
 end)

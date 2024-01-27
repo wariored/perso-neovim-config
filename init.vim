@@ -23,8 +23,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug '907th/vim-auto-save'
-Plug 'ggandor/lightspeed.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ggandor/lightspeed.nvim'
 " formatting
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -63,7 +63,6 @@ autocmd FileType python setlocal foldmethod=indent
 let mapleader = "," " map leader to comma
 set timeoutlen=2000 ttimeoutlen=0
 map <leader>h :noh<CR>
-map <leader>ne :NvimTreeToggle<CR>
 map <leader>nf :NvimTreeFocus<CR>
 map <leader>nl :NvimTreeFindFile<CR>
 map <leader>nc :NvimTreeCollapse<CR>
@@ -106,7 +105,7 @@ let g:leetcode_browser='chrome'
 let g:leetcode_solution_filetype='golang'
 let g:leetcode_hide_paid_only=v:true
 " vim-airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 
 " add the missing imports on save
