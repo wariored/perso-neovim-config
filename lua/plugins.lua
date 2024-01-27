@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 	use "hrsh7th/cmp-cmdline"
 	use "hrsh7th/nvim-cmp"
 	use "williamboman/mason.nvim"
+	use "williamboman/mason-lspconfig.nvim"
 	use "williamboman/nvim-lsp-installer"
 	-- Along with nvim-cmp or vsnip users.
 	use "hrsh7th/cmp-vsnip"

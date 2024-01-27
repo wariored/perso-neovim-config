@@ -1,5 +1,6 @@
 -- Setup language servers.
-require("nvim-lsp-installer").setup({})
+require("mason").setup({})
+require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 -- Register null-ls formatter
@@ -8,8 +9,8 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.black,
 		null_ls.builtins.completion.spell,
-		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.gofmt,
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.golines.with({
@@ -31,20 +32,44 @@ local function on_attach(client, bufnr)
 end
 
 lspconfig.ruff_lsp.setup {
-  on_attach = on_attach,
-  init_options = {
-    settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {},
-    }
-  }
+	capabilities = capabilities,
+	on_attach = on_attach,
+	init_options = {
+		settings = {
+			args = {},
+		}
+	}
+}
+lspconfig.pylsp.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		pylsp = {
+			plugins = {
+				-- formatter options
+				black = { enabled = true },
+				autopep8 = { enabled = false },
+				yapf = { enabled = false },
+				-- linter options
+				pylint = { enabled = false, executable = "pylint" },
+				pyflakes = { enabled = false },
+				pycodestyle = { enabled = false },
+				-- type checker
+				pylsp_mypy = { enabled = true },
+				-- auto-completion options
+				jedi_completion = { fuzzy = true },
+				-- import sorting
+				pyls_isort = { enabled = false },
+			},
+		},
+	}
 }
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -55,6 +80,7 @@ lspconfig.vimls.setup({
 lspconfig.rust_analyzer.setup({
 	-- Server-specific settings. See `help lspconfig-setup`
 	capabilities = capabilities,
+	on_attach = on_attach,
 	settings = {
 		["rust-analyzer"] = {},
 	},
