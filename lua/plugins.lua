@@ -38,4 +38,6 @@ return require("packer").startup(function(use)
 	use 'romgrk/barbar.nvim'
 	-- find and replace in multiple files
 	use 'brooth/far.vim'
+	-- buffer delete
+	use 'famiu/bufdelete.nvim'
 end)
