@@ -107,6 +107,7 @@ let g:leetcode_hide_paid_only=v:true
 " vim-airline
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:far#enable_undo=1
 
 " add the missing imports on save
 " Use the stdio version of OmniSharp-roslyn - this is the default
