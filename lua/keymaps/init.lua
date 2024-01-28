@@ -45,3 +45,9 @@ map(
 map("n", "<Leader>dgt", '<cmd>lua require("dap-go").debug_test()<CR>', { noremap = true, silent = true })
 -- Debug last go test
 map("n", "<Leader>dgl", '<cmd>lua require("dap-go").debug_last()<CR>', { noremap = true, silent = true })
+
+-- Spectre for replace
+map('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', opts)
+map('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
+map('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
+map('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)

@@ -14,7 +14,6 @@ return require("packer").startup(function(use)
 	-- lps libs
 	use "williamboman/mason.nvim"
 	use "williamboman/mason-lspconfig.nvim"
-	use "williamboman/nvim-lsp-installer"
 	-- Along with nvim-cmp or vsnip users.
 	use "hrsh7th/cmp-vsnip"
 	use "hrsh7th/vim-vsnip"
@@ -39,5 +38,6 @@ return require("packer").startup(function(use)
 	-- find and replace in multiple files
 	use 'brooth/far.vim'
 	-- buffer delete
-	use 'famiu/bufdelete.nvim'
+	-- depends on plenary.nvim
+	use 'nvim-pack/nvim-spectre'
 end)
