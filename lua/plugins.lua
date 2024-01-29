@@ -39,5 +39,6 @@ return require("packer").startup(function(use)
 	use 'brooth/far.vim'
 	-- buffer delete
 	-- depends on plenary.nvim
+	-- You may need run brew install gnu-sed
 	use 'nvim-pack/nvim-spectre'
 end)
