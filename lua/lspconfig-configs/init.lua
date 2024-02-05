@@ -31,16 +31,16 @@ local function on_attach(client, bufnr)
 	end
 end
 
-lspconfig.ruff_lsp.setup {
+lspconfig.ruff_lsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = {
 		settings = {
 			args = {},
-		}
-	}
-}
-lspconfig.pylsp.setup {
+		},
+	},
+})
+lspconfig.pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -57,13 +57,13 @@ lspconfig.pylsp.setup {
 				-- type checker
 				pylsp_mypy = { enabled = true },
 				-- auto-completion options
-				jedi_completion = { fuzzy = true },
+				jedi_completion = { enabled = true, fuzzy = true },
 				-- import sorting
 				pyls_isort = { enabled = false },
 			},
 		},
-	}
-}
+	},
+})
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
