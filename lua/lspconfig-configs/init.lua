@@ -38,12 +38,13 @@ lspconfig.pyright.setup({
 	settings = {
 		python = {
 			analysis = {
+				typeCheckingMode = "off",
 				autoSearchPaths = true,
 				diagnosticMode = "workspace",
 				useLibraryCodeForTypes = true,
 				autoImportCompletions = true,
 			},
-		},
+	},
 	},
 })
 lspconfig.ruff_lsp.setup({
@@ -58,6 +59,9 @@ lspconfig.ruff_lsp.setup({
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 200,
+	},
 	settings = {
 		pylsp = {
 			plugins = {
