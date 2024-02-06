@@ -66,11 +66,16 @@ lspconfig.pylsp.setup({
 				autopep8 = { enabled = false },
 				yapf = { enabled = false },
 				-- linter options
-				pylint = { enabled = false, executable = "pylint" },
+				pylint = { enabled = true, executable = "pylint" },
 				pyflakes = { enabled = false },
 				pycodestyle = { enabled = false },
 				-- type checker
-				pylsp_mypy = { enabled = true },
+				pylsp_mypy = {
+					enabled = true,
+					overrides = { "--python-executable", py_path, true },
+					report_progress = true,
+					live_mode = false,
+				},
 				-- auto-completion options
 				jedi_completion = { enabled = true, fuzzy = true },
 				-- import sorting
