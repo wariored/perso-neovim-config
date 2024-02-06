@@ -44,7 +44,7 @@ lspconfig.pyright.setup({
 				useLibraryCodeForTypes = true,
 				autoImportCompletions = true,
 			},
-	},
+		},
 	},
 })
 lspconfig.ruff_lsp.setup({
@@ -58,10 +58,6 @@ lspconfig.ruff_lsp.setup({
 })
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
-	capabilities = capabilities,
-	flags = {
-		debounce_text_changes = 200,
-	},
 	settings = {
 		pylsp = {
 			plugins = {
@@ -82,6 +78,10 @@ lspconfig.pylsp.setup({
 			},
 		},
 	},
+	flags = {
+		debounce_text_changes = 200,
+	},
+	capabilities = capabilities,
 })
 
 lspconfig.tsserver.setup({
