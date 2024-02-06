@@ -30,7 +30,22 @@ local function on_attach(client, bufnr)
 		null_ls.setup_on_attach(client)
 	end
 end
-
+lspconfig.pyright.setup({
+	on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end,
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+				autoImportCompletions = true,
+			},
+		},
+	},
+})
 lspconfig.ruff_lsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
