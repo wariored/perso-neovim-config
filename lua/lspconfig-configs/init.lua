@@ -65,8 +65,9 @@ lspconfig.pylsp.setup({
 				black = { enabled = true },
 				autopep8 = { enabled = false },
 				yapf = { enabled = false },
+				pylint = { enabled = false, executable = "pylint", args = {"--disable=import-error"}, },
+
 				-- linter options
-				pylint = { enabled = true, executable = "pylint" },
 				pyflakes = { enabled = false },
 				pycodestyle = { enabled = false },
 				-- type checker
