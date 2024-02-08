@@ -30,23 +30,7 @@ local function on_attach(client, bufnr)
 		null_ls.setup_on_attach(client)
 	end
 end
-lspconfig.pyright.setup({
-	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end,
-	settings = {
-		python = {
-			analysis = {
-				typeCheckingMode = "off",
-				autoSearchPaths = true,
-				diagnosticMode = "workspace",
-				useLibraryCodeForTypes = true,
-				autoImportCompletions = true,
-			},
-		},
-	},
-})
+
 lspconfig.ruff_lsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -56,8 +40,25 @@ lspconfig.ruff_lsp.setup({
 		},
 	},
 })
+lspconfig.pyright.setup({
+	on_attach = on_attach,
+	capabilites = capabilities,
+	settings = {
+		pyright = { autoImportCompletion = true },
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "openFilesOnly",
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "off",
+			},
+		},
+	},
+})
+
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		pylsp = {
 			plugins = {
@@ -71,23 +72,19 @@ lspconfig.pylsp.setup({
 				pyflakes = { enabled = false },
 				pycodestyle = { enabled = false },
 				-- type checker
-				pylsp_mypy = {
-					enabled = true,
-					overrides = { "--python-executable", py_path, true },
-					report_progress = true,
-					live_mode = false,
-				},
+				pylsp_mypy = { enabled = true },
 				-- auto-completion options
 				jedi_completion = { enabled = true, fuzzy = true },
+				jedi_hover = { enabled = true },
+				jedi_references = { enabled = true },
+				jedi_signature_help = { enabled = true },
+				jedi_symbols = { enabled = true, all_scopes = true },
+
 				-- import sorting
 				pyls_isort = { enabled = false },
 			},
 		},
 	},
-	flags = {
-		debounce_text_changes = 200,
-	},
-	capabilities = capabilities,
 })
 
 lspconfig.tsserver.setup({
