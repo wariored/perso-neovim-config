@@ -1,6 +1,6 @@
 [[language]]
 name = "python"
-language-servers = ["pylsp"]
+language-servers = ["pylsp", "pyright"]
 roots = ["pyproject.toml", ".git"]
 workspace-lsp-roots = ["src/updater"]
 auto-format = true
@@ -16,3 +16,11 @@ yapf = {enabled = false}
 ruff = { enabled = true}
 pylsp_mypy = {enabled = false}
 rope_autoimport = {enabled = true}
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+[language-server.pyright.config]
+pyright = { autoImportCompletion = true }
+python = { analysis = {autoSearchPaths = true,diagnosticMode = "openFilesOnly", useLibraryCodeForTypes = true,typeCheckingMode = "off"}}
+
