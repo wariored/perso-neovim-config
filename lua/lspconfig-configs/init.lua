@@ -1,6 +1,4 @@
 -- Setup language servers.
-require("mason").setup({})
-require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 -- Register null-ls formatter
