@@ -11,9 +11,15 @@ vim.opt.updatetime = 100
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 0
 vim.opt.termguicolors = true
+vim.opt.ts = 4
+vim.opt.sw = 4
+vim.opt.autoread = true
 
 -- Colorscheme
 vim.cmd [[colorscheme kanagawa]]
+
+-- Highlight Visual Mode
+vim.cmd [[highlight Visual guibg=blue guifg=white]]
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
@@ -43,6 +49,9 @@ vim.cmd [[
   let g:leetcode_hide_paid_only = v:true
 ]]
 
+-- notifications
+vim.notify = require("notify")
+
 require("lspconfig-configs")
 require("nvim-cmp-configs")
 require("treesitter-configs")
@@ -51,3 +60,5 @@ require("nvim-dap-go-configs")
 require("gopher-configs")
 require("which-key-configs")
 require("noice-nvim-configs")
+require('aerial-configs')
+require("scope").setup({})

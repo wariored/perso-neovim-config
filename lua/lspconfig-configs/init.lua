@@ -1,4 +1,9 @@
 -- Setup language servers.
+require("mason").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "pylsp", "tsserver", "vimls", "gopls", "ruff_lsp"},
+}
+
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 -- Register null-ls formatter
@@ -148,7 +153,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>wl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "<sace>D", vim.lsp.buf.type_definition, opts)
 		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)

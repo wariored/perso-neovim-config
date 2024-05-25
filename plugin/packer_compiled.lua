@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["aerial.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/aerial.nvim",
+    url = "https://github.com/stevearc/aerial.nvim"
+  },
   black = {
     loaded = true,
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/black",
@@ -159,6 +164,16 @@ _G.packer_plugins = {
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
     url = "https://github.com/ggandor/lightspeed.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nerdcommenter",
@@ -168,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/noice.nvim",
     url = "https://github.com/folke/noice.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -199,10 +219,20 @@ _G.packer_plugins = {
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
   ["nvim-nio"] = {
     loaded = true,
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nvim-nio",
     url = "https://github.com/nvim-neotest/nvim-nio"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -238,6 +268,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
+  },
+  ["scope.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/scope.nvim",
+    url = "https://github.com/tiagovla/scope.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/wariored/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   vim = {
     loaded = true,

@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'projekt0n/github-nvim-theme'
   use 'christoomey/vim-tmux-navigator'
-  use 'neovim/nvim-lspconfig'
   use {
     "olexsmir/gopher.nvim",
     requires = { -- dependencies
@@ -54,10 +53,20 @@ return require('packer').startup(function(use)
      }
     end
   }
-  use {'folke/noice.nvim', requires = {'MunifTanjim/nui.nvim'}}
+  use {'folke/noice.nvim', requires = {'MunifTanjim/nui.nvim', "rcarriga/nvim-notify"}}
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
-  
-
+  use 'tiagovla/scope.nvim'
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+  use 'stevearc/aerial.nvim'
+  -- lspconfig 
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
   -- dap
   use 'mfussenegger/nvim-dap'
   use 'leoluz/nvim-dap-go'
