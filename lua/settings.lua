@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hidden = true
-vim.opt.encoding = 'utf8'
+vim.opt.encoding = "utf8"
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 0
@@ -16,10 +16,10 @@ vim.opt.sw = 4
 vim.opt.autoread = true
 
 -- Colorscheme
-vim.cmd [[colorscheme kanagawa]]
+vim.cmd([[colorscheme kanagawa]])
 
 -- Highlight Visual Mode
-vim.cmd [[highlight Visual guibg=blue guifg=white]]
+vim.cmd([[highlight Visual guibg=blue guifg=white]])
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
@@ -29,13 +29,13 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- foldings
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- Plugin-specific settings
-vim.cmd [[
+vim.cmd([[
   let g:auto_save = 1
   let g:auto_save_keep_undo = 1
   let g:airline#extensions#tabline#enabled = 0
@@ -47,7 +47,7 @@ vim.cmd [[
   let g:leetcode_browser = 'chrome'
   let g:leetcode_solution_filetype = 'golang'
   let g:leetcode_hide_paid_only = v:true
-]]
+]])
 
 -- notifications
 vim.notify = require("notify")
@@ -63,5 +63,5 @@ require("nvim-dap-go-configs")
 require("gopher-configs")
 require("which-key-configs")
 require("noice-nvim-configs")
-require('aerial-configs')
+require("aerial-configs")
 require("scope").setup({})

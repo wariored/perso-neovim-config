@@ -1,8 +1,18 @@
 -- Setup language servers.
 require("mason").setup()
-require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "pylsp", "tsserver", "vimls", "gopls", "ruff_lsp"},
-}
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"lua_ls",
+		"rust_analyzer",
+		"pyright",
+		"pylsp",
+		"tsserver",
+		"vimls",
+		"gopls",
+		"ruff_lsp",
+		"jdtls",
+	},
+})
 
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
@@ -43,6 +53,12 @@ lspconfig.ruff_lsp.setup({
 		},
 	},
 })
+
+lspconfig.jdtls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.pyright.setup({
 	on_attach = on_attach,
 	capabilites = capabilities,
@@ -98,12 +114,12 @@ lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
 })
 lspconfig.vimls.setup({
 	capabilities = capabilities,
