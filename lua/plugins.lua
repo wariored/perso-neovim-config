@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
      }
     end
   }
+  use 'APZelos/blamer.nvim'
   use {'folke/noice.nvim', requires = {'MunifTanjim/nui.nvim', "rcarriga/nvim-notify"}}
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
   use 'tiagovla/scope.nvim'

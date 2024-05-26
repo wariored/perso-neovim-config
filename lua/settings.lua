@@ -52,6 +52,9 @@ vim.cmd [[
 -- notifications
 vim.notify = require("notify")
 
+-- git blame using dependent of blamer.nvim
+vim.g.blamer_enabled = true
+
 require("lspconfig-configs")
 require("nvim-cmp-configs")
 require("treesitter-configs")
