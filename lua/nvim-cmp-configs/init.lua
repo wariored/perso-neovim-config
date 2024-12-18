@@ -1,10 +1,5 @@
 local cmp = require("cmp")
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
-		end,
-	},
 	mapping = {
 		["<S-Tab>"] = cmp.mapping.select_prev_item(), -- Shift + Tab to move up
 		["<Tab>"] = cmp.mapping.select_next_item(), -- Tab (→|) to move down

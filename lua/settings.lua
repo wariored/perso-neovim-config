@@ -11,15 +11,29 @@ vim.opt.updatetime = 100
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 0
 vim.opt.termguicolors = true
-vim.opt.ts = 4
-vim.opt.sw = 4
+-- vim.opt.ts = 4
+-- vim.opt.sw = 4
 vim.opt.autoread = true
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.o.shiftwidth = 4
+vim.o.tabstop=4
+
+vim.cmd([[set termguicolors]])
+vim.cmd([[set background=dark]])
+vim.cmd([[set t_Co=256]])
+-- vim.cmd([[xnoremap p pgvy]])
+vim.cmd([[au Filetype typescript setl ts=2 sts=2 sw=2]])
 
 -- Colorscheme
 vim.cmd([[colorscheme kanagawa]])
 
 -- Highlight Visual Mode
 vim.cmd([[highlight Visual guibg=blue guifg=white]])
+
+-- language spell checking
+vim.cmd([[setlocal spell spelllang=en_us]])
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
@@ -50,7 +64,7 @@ vim.cmd([[
 ]])
 
 -- notifications
-vim.notify = require("notify")
+-- vim.notify = require("notify")
 
 -- git blame using dependent of blamer.nvim
 vim.g.blamer_enabled = true
@@ -62,6 +76,6 @@ require("nvimtree-configs")
 require("nvim-dap-go-configs")
 require("gopher-configs")
 require("which-key-configs")
-require("noice-nvim-configs")
+-- require("noice-nvim-configs")
 require("aerial-configs")
 require("scope").setup({})

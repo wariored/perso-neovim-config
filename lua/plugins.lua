@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	use("rebelot/kanagawa.nvim")
+	use("mfussenegger/nvim-jdtls")
 	use("nvim-lua/plenary.nvim")
 	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 	use("mhinz/vim-startify")
@@ -29,10 +30,10 @@ return require("packer").startup(function(use)
 	use("mxw/vim-jsx")
 	use({ "psf/black", branch = "stable" })
 	use("907th/vim-auto-save")
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	-- use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("ggandor/lightspeed.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("projekt0n/github-nvim-theme")
+	-- use("projekt0n/github-nvim-theme")
 	use("christoomey/vim-tmux-navigator")
 	use({
 		"olexsmir/gopher.nvim",
@@ -54,7 +55,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use("APZelos/blamer.nvim")
-	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
+	-- use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("tiagovla/scope.nvim")
 	use({
@@ -82,4 +83,10 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")  -- LSP completions
 	use("hrsh7th/cmp-nvim-lua")  -- Lua completions
+	-- quick comment
+	use 'b3nj5m1n/kommentary'
+	-- vscode like pictogramme
+	 use 'onsails/lspkind.nvim'
+	-- improve neovim experience
+	use 'nvimdev/lspsaga.nvim'
 end)

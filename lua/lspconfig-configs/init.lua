@@ -5,47 +5,89 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"rust_analyzer",
 		"pyright",
-		"pylsp",
-		"tsserver",
+        "pylsp",
 		"vimls",
 		"gopls",
-		"ruff_lsp",
+        "ruff_lsp",
 		"jdtls",
 	},
+    --[[
+        handlers = {
+                ['jdtls'] = function() end
+        }
+        ]]--
 })
 
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 local null_ls = require("null-ls")
 -- Register null-ls formatter
 null_ls.setup({
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.diagnostics.eslint,
+		-- null_ls.builtins.formatting.prettier,
 		-- null_ls.builtins.formatting.black,
-		null_ls.builtins.completion.spell,
-		null_ls.builtins.formatting.gofmt,
-		null_ls.builtins.formatting.goimports,
-		null_ls.builtins.formatting.golines.with({
+		-- null_ls.builtins.completion.spell,
+		-- null_ls.builtins.formatting.gofmt,
+		-- null_ls.builtins.formatting.goimports,
+		--[[ null_ls.builtins.formatting.golines.with({
 			-- Set the maximum line length (e.g., 100 characters)
 			max_line_length = 89,
-		}),
+		}), ]]--
+                null_ls.builtins.code_actions.eslint_d,
+                null_ls.builtins.diagnostics.eslint_d,
+                null_ls.builtins.formatting.eslint_d,
 	},
 })
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+local function bemol()
+ local bemol_dir = vim.fs.find({ '.bemol' }, { upward = true, type = 'directory'})[1]
+ local ws_folders_lsp = {}
+ if bemol_dir then
+  local file = io.open(bemol_dir .. '/ws_root_folders', 'r')
+  if file then
 
-local function on_attach(client, bufnr)
-	if client.name == "null-ls" then
-		null_ls.setup_on_attach(client)
-	end
+   for line in file:lines() do
+    table.insert(ws_folders_lsp, line)
+   end
+   file:close()
+  end
+ end
+
+ for _, line in ipairs(ws_folders_lsp) do
+  vim.lsp.buf.add_workspace_folder(line)
+ end
+
+end
+local on_attach = function(client, bufnr)
+        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+        local opts = { noremap = true, silent = true }
+
+        buf_set_keymap('n', 'gD', '<cmd>FzfLua lsp_type_definitions<CR>', opts)
+        buf_set_keymap('n', 'gd', '<cmd>FzfLua lsp_definitions<CR>', opts)
+        buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+        buf_set_keymap('n', 'gh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+        buf_set_keymap('n', 'gi', '<cmd>FzfLua lsp_implementations<CR>', opts)
+        buf_set_keymap('n', 'gr', '<cmd>FzfLua lsp_references<CR>', opts)
+        buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+        buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.codelens.run()<cr>', opts)
+        buf_set_keymap('n', '<leader>lR', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+        client.server_capabilities.document_formatting = true
+        bemol()
 end
 
 lspconfig.ruff_lsp.setup({
-	capabilities = capabilities,
+	capabilities = vim.lsp.protocol.make_client_capabilities(),
 	on_attach = on_attach,
 	init_options = {
 		settings = {
@@ -54,10 +96,10 @@ lspconfig.ruff_lsp.setup({
 	},
 })
 
-lspconfig.jdtls.setup({
+--[[ lspconfig.jdtls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}) ]]--
 
 lspconfig.pyright.setup({
 	on_attach = on_attach,
@@ -107,6 +149,10 @@ lspconfig.pylsp.setup({
 })
 
 lspconfig.tsserver.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+lspconfig.jdtls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -185,3 +231,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
+
